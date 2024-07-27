@@ -73,7 +73,11 @@ const loginDoctor = async (req, res) => {
           { doctorId: doctor._id, mobileNumber: doctor.mobileNumber },
           process.env.JWT_SECRET_KEY
         );
-        res.cookie("token", token);
+        res.cookie("token", token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "none",
+        });
         return res
           .status(200)
           .json({ message: "Doctor Logged In Successfully", data: doctor });
@@ -99,7 +103,11 @@ const doctor = async (req, res) => {
 };
 const logoutDoctor = async (req, res) => {
   try {
-    res.cookie("token", "");
+    res.cookie("token", "", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
     return res.status(200).json({ message: "Doctor Log Out Successfully" });
   } catch (error) {
     return res

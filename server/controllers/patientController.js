@@ -31,7 +31,11 @@ const registerPatient = async (req, res) => {
         { patientId: patient._id, mobileNumber: mobileNumber },
         process.env.JWT_SECRET_KEY
       );
-      res.cookie("token", token);
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      });
       return res
         .status(200)
         .json({ message: "Patient Created Successfully", data: patient });
@@ -61,7 +65,11 @@ const loginPatient = async (req, res) => {
         },
         process.env.JWT_SECRET_KEY
       );
-      res.cookie("token", token);
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      });
       return res
         .status(200)
         .json({ message: "Patient login successfully", data: patient });
@@ -87,7 +95,11 @@ const patient = async (req, res) => {
 
 const logoutPatient = async (req, res) => {
   try {
-    res.cookie("token", "");
+    res.cookie("token", "", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
     return res.status(200).json({ message: "Patient logged out successfully" });
   } catch (error) {
     return res.status(404).json({ message: "error in logout catch" });
@@ -185,7 +197,9 @@ const allDoctorDetails = async (req, res) => {
 const patientDetails = async (req, res) => {
   const data = req.patient;
   try {
-    const patient = await patientModel.findOne({ _id: data._id }).populate("medicalHistory");
+    const patient = await patientModel
+      .findOne({ _id: data._id })
+      .populate("medicalHistory");
     if (!patient) {
       return res.status(404).json({ message: "Patient not Authorized" });
     }
