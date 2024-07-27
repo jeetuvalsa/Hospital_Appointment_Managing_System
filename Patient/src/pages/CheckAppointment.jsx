@@ -29,37 +29,44 @@ const CheckAppointment = () => {
     allDoctordata();
   }, []);
   return (
-    <div className="w-full min-h-screen bg-black/10 pt-10 px-20 flex items-start justify-start gap-10  flex-wrap">
-      {allDoctors.map((item, index) => (
-        <div className="w-fit px-5 py-3 bg-white flex flex-col items-center justify-center rounded-lg">
-          <div className="w-52 h-52 rounded-full overflow-hidden">
-            <img
-              src={item.image}
-              className="w-full h-full object-cover object-center"
-              alt=""
-            />
-          </div>
-          <h1 className="text-lg mt-4  text-center font-semibold">
-            Name:
-            <span className="uppercase font-normal ml-2">{item.name}</span>
-          </h1>
-          <h1 className="text-lg mt-4  text-center font-semibold">
-            Specialization: <span className="uppercase font-normal ml-2">{item.specialization}</span>
-          </h1>
-          <h1 className="text-lg mt-4  text-center font-semibold">
-            Department: <span className="uppercase font-normal ml-2">{item.department}</span>
-          </h1>
-          <h1 className="text-lg mt-4  text-center font-semibold mb-5">
-            Mobile No :<span className="uppercase font-normal ml-2">{item.mobileNumber}</span>
-          </h1>
-          <Link to={`/create/appointment/${item._id}`}>
-            <h1 className="text-lg font-semibold bg-green-500 border border-black w-fit text-white px-5 py-1 rounded-xl">
-              Book
-            </h1>
-          </Link>
-        </div>
-      ))}
+    <div className="w-full min-h-screen bg-black/10 pt-10 px-4 md:px-20 flex items-start justify-start gap-6 flex-wrap">
+  {allDoctors.map((item, index) => (
+    <div
+      key={index}
+      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-4 py-5 bg-white flex flex-col items-center justify-center rounded-lg shadow-md"
+    >
+      <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden">
+        <img
+          src={item.image}
+          className="w-full h-full object-cover object-center"
+          alt=""
+        />
+      </div>
+      <h1 className="text-lg mt-4 text-center font-semibold">
+        Name:
+        <span className="uppercase font-normal ml-2">{item.name}</span>
+      </h1>
+      <h1 className="text-lg mt-2 text-center font-semibold">
+        Specialization:
+        <span className="uppercase font-normal ml-2">{item.specialization}</span>
+      </h1>
+      <h1 className="text-lg mt-2 text-center font-semibold">
+        Department:
+        <span className="uppercase font-normal ml-2">{item.department}</span>
+      </h1>
+      <h1 className="text-lg mt-2 text-center font-semibold mb-4">
+        Mobile No:
+        <span className="uppercase font-normal ml-2">{item.mobileNumber}</span>
+      </h1>
+      <Link to={`/create/appointment/${item._id}`}>
+        <h1 className="text-lg font-semibold bg-green-500 border border-black w-fit text-white px-4 py-2 rounded-xl">
+          Book
+        </h1>
+      </Link>
     </div>
+  ))}
+</div>
+
   );
 };
 

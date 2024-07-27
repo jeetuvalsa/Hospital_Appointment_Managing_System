@@ -47,10 +47,11 @@ const RegisterPage = () => {
   return (
     <div className="bg-background text-primary-foreground min-h-screen flex flex-col justify-center items-center">
       <form
-        className="bg-card shadow-lg p-8 rounded-lg w-full md:w-1/2 lg:w-1/3"
-        s
+        className="bg-card shadow-lg p-8 rounded-lg w-full sm:w-3/4 md:w-1/2 lg:w-1/3"
+        onSubmit={handleClick}
       >
         <h2 className="text-2xl font-bold mb-4">Doctor Registration Form</h2>
+
         <div className="mb-4">
           <label className="block text-sm font-medium" htmlFor="image">
             Profile Picture
@@ -63,11 +64,12 @@ const RegisterPage = () => {
               onChange={(e) =>
                 setData((prev) => ({ ...prev, image: e.target.files[0] }))
               }
-              className=" pl-3 py-2"
+              className="pl-3 py-2"
               accept="image/*"
             />
           </div>
         </div>
+
         <div className="mb-4">
           <label className="block text-sm font-medium" htmlFor="name">
             Doctor Full Name
@@ -83,6 +85,7 @@ const RegisterPage = () => {
             className="w-full mt-1 p-2 rounded-md border border-input focus:outline-none focus:ring focus:ring-ring"
           />
         </div>
+
         <div className="mb-4">
           <label className="block text-sm font-medium" htmlFor="specialization">
             Specialization
@@ -98,6 +101,7 @@ const RegisterPage = () => {
             className="w-full mt-1 p-2 rounded-md border border-input focus:outline-none focus:ring focus:ring-ring"
           />
         </div>
+
         <div className="mb-4">
           <label
             className="block text-sm font-medium"
@@ -119,6 +123,7 @@ const RegisterPage = () => {
             className="w-full mt-1 p-2 rounded-md border border-input focus:outline-none focus:ring focus:ring-ring"
           />
         </div>
+
         <div className="mb-4">
           <label className="block text-sm font-medium" htmlFor="department">
             Department
@@ -134,6 +139,7 @@ const RegisterPage = () => {
             className="w-full mt-1 p-2 rounded-md border border-input focus:outline-none focus:ring focus:ring-ring"
           />
         </div>
+
         <div className="mb-4">
           <label className="block text-sm font-medium" htmlFor="mobileNumber">
             Mobile Number
@@ -149,6 +155,7 @@ const RegisterPage = () => {
             className="w-full mt-1 p-2 rounded-md border border-input focus:outline-none focus:ring focus:ring-ring"
           />
         </div>
+
         <div className="mb-4">
           <label className="block text-sm font-medium" htmlFor="password">
             Password
@@ -164,15 +171,16 @@ const RegisterPage = () => {
             className="w-full mt-1 p-2 rounded-md border border-input focus:outline-none focus:ring focus:ring-ring"
           />
         </div>
+
         <button
           type="submit"
-          onClick={handleClick}
-          className="bg-black text-white py-2 px-4 rounded-md hover:bg-black/80 transition-colors"
+          className="bg-black text-white py-2 px-4 rounded-md hover:bg-black/80 transition-colors w-full"
         >
           Submit
         </button>
+
         <h1 className="text-md mt-4">
-          you already have an account ?{" "}
+          Already have an account?{" "}
           <Link to="/login" className="text-blue-500 font-medium">
             Login
           </Link>
