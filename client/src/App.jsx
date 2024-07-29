@@ -17,8 +17,8 @@ const App = () => {
     <div className="w-full min-h-screen">
       <Navbar />
       <Routes>
-        <Route path="/" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/madhujeet/valsa/register/me" element={<RegisterPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/appointments" element={<AppointmentsPage />} />
         <Route path="/status/all" element={<StatusPage />} />

@@ -87,7 +87,7 @@ const LoginPage = () => {
       </button>
       <h1 className="text-md mt-4 text-center">
         Don't have an account?{" "}
-        <Link to="/" className="text-blue-500 font-medium">
+        <Link className="text-blue-500 font-medium">
           Register
         </Link>
       </h1>
