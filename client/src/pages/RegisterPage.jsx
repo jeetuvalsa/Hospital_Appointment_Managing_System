@@ -181,7 +181,7 @@ const RegisterPage = () => {
 
         <h1 className="text-md mt-4">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-500 font-medium">
+          <Link to="/" className="text-blue-500 font-medium">
             Login
           </Link>
         </h1>
