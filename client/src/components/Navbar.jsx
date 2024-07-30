@@ -13,7 +13,7 @@ const Navbar = () => {
           <Link>
             <img
               className="w-full h-full object-cover object-center"
-              src="\public\logo.png"
+              src="client\public\logo.png"
               alt=""
             />
           </Link>
