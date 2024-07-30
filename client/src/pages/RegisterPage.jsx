@@ -38,7 +38,7 @@ const RegisterPage = () => {
       if (response.ok) {
         // console.log(responseData);
         toast.success(responseData.message);
-        navigate("/login");
+        navigate("/");
       }
     } catch (error) {
       console.error("Error:", error);
